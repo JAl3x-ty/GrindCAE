@@ -1,0 +1,57 @@
+{
+  "result_format": "grindcae_phase_5b2_portable_smoke_report",
+  "grindcae_version": "3.8.1",
+  "generated_at_utc": "2026-09-25T13:04:53.927261+00:00",
+  "output_directory": "D:\\CODEX\\project-Grinding.CAE-3.8.0\\release\\GrindCAE-3.8.1-Windows-x64-smoke",
+  "single_position": {
+    "output_directory": "D:\\CODEX\\project-Grinding.CAE-3.8.0\\release\\GrindCAE-3.8.1-Windows-x64-smoke\\single_position",
+    "artifact_count": 13,
+    "node_count": 709,
+    "triangle_count": 1293,
+    "active_facet_count": 4,
+    "force_balance_residual_norm_N": 5.186475275108552e-13,
+    "maximum_displacement_m": 9.214487790885639e-08
+  },
+  "pass_scan": {
+    "output_directory": "D:\\CODEX\\project-Grinding.CAE-3.8.0\\release\\GrindCAE-3.8.1-Windows-x64-smoke\\pass_scan",
+    "base_position_count": 5,
+    "actual_position_count": 10,
+    "unique_snapshot_count": 4,
+    "maximum_force_balance_residual_norm_N": 5.672338804534726e-13,
+    "zero_contact_endpoints_have_zero_finite_response": true,
+    "validations_passed": true
+  },
+  "mechanism_field_evolution": {
+    "output_directory": "D:\\CODEX\\project-Grinding.CAE-3.8.0\\release\\GrindCAE-3.8.1-Windows-x64-smoke\\mechanism_field_evolution",
+    "frame_count": 10,
+    "node_count": 318,
+    "triangle_count": 552,
+    "equivalent_group_count": 16,
+    "pass_states": [
+      "before_entry",
+      "entry",
+      "full_contact",
+      "exit",
+      "after_exit"
+    ],
+    "baseline_png_count": 10,
+    "mechanism_png_count": 10,
+    "difference_png_count": 10,
+    "baseline_vtu_count": 10,
+    "mechanism_vtu_count": 10,
+    "difference_vtu_count": 10,
+    "pvd_count": 3,
+    "manifest_result_format": "grindcae_mechanism_history_pass_target_field_evolution_comparison",
+    "nonzero_difference_confirmed": true,
+    "final_unloaded_confirmed": true,
+    "total_force_history_identical": true,
+    "retained_artifact_count": 10,
+    "elapsed_seconds": 60.44008749999921
+  },
+  "artifact_checks": {
+    "decoded_png_count": 36,
+    "readable_msh_count": 5,
+    "readable_vtu_count": 5
+  },
+  "passed": true
+}

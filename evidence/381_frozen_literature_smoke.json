@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "version": "3.8.1",
+  "frozen": true,
+  "Tk_workbench_and_project_roundtrip": true,
+  "result_format": "grindcae_literature_elastoplastic_history_v1",
+  "comparison": {
+    "total_force_history_identical": true,
+    "maximum_nodal_load_difference_N": 10.569694843174437,
+    "maximum_component_projection_residual_N": 7.105427357601002e-15,
+    "uniform_fallback_component_count": 0
+  },
+  "force": {
+    "Ft_N": 43.81730624272402,
+    "Fn_N": 65.54138202558842,
+    "power_W": 876.3461248544804,
+    "components": {
+      "plastic_t_N": 1.0288282550645673,
+      "plastic_n_N": 2.9698793135057215,
+      "removal_t_N": 9.447199144265065,
+      "removal_n_N": 27.301260662028838,
+      "rake_t_N": 18.37458196514948,
+      "rake_n_N": 10.613410290177557,
+      "wear_n_N": 24.656831759876297,
+      "wear_t_N": 14.966696878244912
+    },
+    "counts": {
+      "sampled": 1544,
+      "static": 272,
+      "dynamic": 210,
+      "ploughing": 40,
+      "transition": 60,
+      "cutting": 110
+    }
+  }
+}

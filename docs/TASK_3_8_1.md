@@ -1,3 +1,21 @@
+# GrindCAE 3.8.1 已封包并提交本地Git
+
+## 2026-09-25 封包结果
+
+- 用户最终人工验收已通过；仅本地Git，不推送远程。
+- 构建源码提交：`4213ee3adc15823ae5718c6db3ba2f824e71a2c7`，构建前工作树干净。
+- 独立构建运行时按测试文件分进程执行20个文件，274项全部通过，见 evidence/381_isolated_tests.json。
+  单进程大批Tk窗口曾出现tk.tcl主题载入错误，保留失败日志；分进程检查未删减项目。
+- PyInstaller构建通过；冻结运行库诊断、单位置、单程扫描、机制场演化及文献/J2联算通过。
+- 冻结文献结果：Fn=65.541382 N、Ft=43.817306 N；分项投影最大残差7.11e-15 N；两路线最终零外载；Tk工作台和工程保存回读通过。
+- ZIP：release/GrindCAE-3.8.1-Windows-x64.zip，130612569 bytes；1430个ZIP条目CRC检查通过。
+- SHA256：`b99617e5d405ccdbcad9cb734d4e86332f9578e62c1094615e53599ef25eb245`。
+- 证据：evidence/381_release_manifest.json、381_frozen_literature_smoke.json、381_frozen_legacy_smoke.json。
+- 双击解压后的GrindCAE.exe；源码启动器继续保留。便携包保存在release目录，不将二进制运行库加入源码Git。
+- 独立电脑验收及公开分发许可审查仍为pending；本机封包检查已完成，独立物理验证未完成。
+
+以下为历史记录。
+
 # 3.8.1 发布授权（当前）
 
 ## 文档体系
