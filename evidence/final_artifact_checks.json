@@ -1,0 +1,12 @@
+{
+  "contact_source_test_hashes_checked": 385,
+  "changed_since_end_of_implementation": [],
+  "strict_result_rereads": [
+    "D:\\CODEX\\project-Grinding.CAE-3.8.0\\outputs\\explicit_depths",
+    "D:\\CODEX\\project-Grinding.CAE-3.8.0\\outputs\\explicit_depths_printed",
+    "D:\\CODEX\\project-Grinding.CAE-3.8.0\\outputs\\paper_stochastic",
+    "D:\\CODEX\\project-Grinding.CAE-3.8.0\\outputs\\paper_stochastic_printed",
+    "D:\\CODEX\\project-Grinding.CAE-3.8.0\\outputs\\powershell_entry_verified"
+  ],
+  "formal_380_released": false
+}

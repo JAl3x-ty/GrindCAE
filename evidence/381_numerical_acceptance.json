@@ -1,0 +1,389 @@
+{
+  "forward": {
+    "output": "D:\\CODEX\\project-Grinding.CAE-3.8.0\\outputs\\numerical_381_1790338255\\forward",
+    "elapsed_s": 23.59400000000096,
+    "force": {
+      "Ft_N": 43.81730624272402,
+      "Fn_N": 65.54138202558842,
+      "power_W": 876.3461248544804,
+      "components": {
+        "plastic_t_N": 1.0288282550645673,
+        "plastic_n_N": 2.9698793135057215,
+        "removal_t_N": 9.447199144265065,
+        "removal_n_N": 27.301260662028838,
+        "rake_t_N": 18.37458196514948,
+        "rake_n_N": 10.613410290177557,
+        "wear_n_N": 24.656831759876297,
+        "wear_t_N": 14.966696878244912
+      },
+      "counts": {
+        "sampled": 1544,
+        "static": 272,
+        "dynamic": 210,
+        "ploughing": 40,
+        "transition": 60,
+        "cutting": 110
+      }
+    },
+    "routes": {
+      "baseline": {
+        "pass": {
+          "target_position_count": 10,
+          "history_row_count_including_final_unloaded": 11,
+          "total_transition_substep_count": 20,
+          "total_retry_count": 0,
+          "maximum_newton_iterations": 2,
+          "maximum_balance_residual_N": 1.4210854715202004e-14
+        },
+        "maximum_response": {
+          "maximum_displacement_m": 1.7859314879813776e-08,
+          "maximum_displacement_position_id": 6,
+          "maximum_equivalent_plastic_strain": 0.0,
+          "maximum_plastic_position_id": 0,
+          "maximum_plastic_element_count": 0,
+          "accumulated_plastic_dissipation_J": 0.0
+        },
+        "final_unloaded": {
+          "external_force_N": [
+            0.0,
+            0.0
+          ],
+          "external_force_norm_N": 0.0,
+          "fixed_reaction_N": [
+            2.0679015082772175e-16,
+            4.342992856483789e-16
+          ],
+          "balance_residual_N": 4.810177086075357e-16,
+          "maximum_residual_displacement_m": 1.3823988880250953e-24,
+          "von_mises_area_weighted_mean_Pa": 1.3612279974761135e-10,
+          "von_mises_area_weighted_p95_Pa": 2.891048906795043e-10,
+          "von_mises_area_weighted_p99_Pa": 5.819970229074322e-10,
+          "maximum_equivalent_plastic_strain": 0.0,
+          "plastic_element_count": 0,
+          "plastic_element_fraction": 0.0,
+          "accumulated_plastic_dissipation_J": 0.0
+        },
+        "mesh_reuse": {
+          "generation_count": 1,
+          "import_count": 1,
+          "node_count": 81,
+          "triangle_count": 128,
+          "same_nodes_elements_material_points_for_complete_pass": true
+        }
+      },
+      "spatial": {
+        "pass": {
+          "target_position_count": 10,
+          "history_row_count_including_final_unloaded": 11,
+          "total_transition_substep_count": 20,
+          "total_retry_count": 0,
+          "maximum_newton_iterations": 2,
+          "maximum_balance_residual_N": 1.5888218580782548e-14
+        },
+        "maximum_response": {
+          "maximum_displacement_m": 1.4117244857415644e-08,
+          "maximum_displacement_position_id": 7,
+          "maximum_equivalent_plastic_strain": 0.0,
+          "maximum_plastic_position_id": 0,
+          "maximum_plastic_element_count": 0,
+          "accumulated_plastic_dissipation_J": 0.0
+        },
+        "final_unloaded": {
+          "external_force_N": [
+            0.0,
+            0.0
+          ],
+          "external_force_norm_N": 0.0,
+          "fixed_reaction_N": [
+            -3.2857139733772845e-17,
+            1.16281887323901e-15
+          ],
+          "balance_residual_N": 1.163282993769068e-15,
+          "maximum_residual_displacement_m": 1.1910790509757898e-24,
+          "von_mises_area_weighted_mean_Pa": 1.4226017283989094e-10,
+          "von_mises_area_weighted_p95_Pa": 3.38522675847714e-10,
+          "von_mises_area_weighted_p99_Pa": 4.608617054215026e-10,
+          "maximum_equivalent_plastic_strain": 0.0,
+          "plastic_element_count": 0,
+          "plastic_element_fraction": 0.0,
+          "accumulated_plastic_dissipation_J": 0.0
+        },
+        "mesh_reuse": {
+          "generation_count": 1,
+          "import_count": 1,
+          "node_count": 81,
+          "triangle_count": 128,
+          "same_nodes_elements_material_points_for_complete_pass": true
+        }
+      }
+    },
+    "comparison": {
+      "total_force_history_identical": true,
+      "maximum_nodal_load_difference_N": 10.569694843174437,
+      "maximum_component_projection_residual_N": 7.105427357601002e-15,
+      "uniform_fallback_component_count": 0
+    }
+  },
+  "reverse": {
+    "output": "D:\\CODEX\\project-Grinding.CAE-3.8.0\\outputs\\numerical_381_1790338255\\reverse",
+    "elapsed_s": 23.625,
+    "force": {
+      "Ft_N": 43.81730624272402,
+      "Fn_N": 65.54138202558842,
+      "power_W": 876.3461248544804,
+      "components": {
+        "plastic_t_N": 1.0288282550645673,
+        "plastic_n_N": 2.9698793135057215,
+        "removal_t_N": 9.447199144265065,
+        "removal_n_N": 27.301260662028838,
+        "rake_t_N": 18.37458196514948,
+        "rake_n_N": 10.613410290177557,
+        "wear_n_N": 24.656831759876297,
+        "wear_t_N": 14.966696878244912
+      },
+      "counts": {
+        "sampled": 1544,
+        "static": 272,
+        "dynamic": 210,
+        "ploughing": 40,
+        "transition": 60,
+        "cutting": 110
+      }
+    },
+    "routes": {
+      "baseline": {
+        "pass": {
+          "target_position_count": 10,
+          "history_row_count_including_final_unloaded": 11,
+          "total_transition_substep_count": 20,
+          "total_retry_count": 0,
+          "maximum_newton_iterations": 2,
+          "maximum_balance_residual_N": 7.944109290391274e-15
+        },
+        "maximum_response": {
+          "maximum_displacement_m": 1.778303225898856e-08,
+          "maximum_displacement_position_id": 6,
+          "maximum_equivalent_plastic_strain": 0.0,
+          "maximum_plastic_position_id": 0,
+          "maximum_plastic_element_count": 0,
+          "accumulated_plastic_dissipation_J": 0.0
+        },
+        "final_unloaded": {
+          "external_force_N": [
+            0.0,
+            0.0
+          ],
+          "external_force_norm_N": 0.0,
+          "fixed_reaction_N": [
+            -2.1694128523664377e-16,
+            -1.8776966525435408e-16
+          ],
+          "balance_residual_N": 2.869163091039947e-16,
+          "maximum_residual_displacement_m": 8.569640421671999e-25,
+          "von_mises_area_weighted_mean_Pa": 1.2725993460128124e-10,
+          "von_mises_area_weighted_p95_Pa": 2.499410750884754e-10,
+          "von_mises_area_weighted_p99_Pa": 3.619240432486453e-10,
+          "maximum_equivalent_plastic_strain": 0.0,
+          "plastic_element_count": 0,
+          "plastic_element_fraction": 0.0,
+          "accumulated_plastic_dissipation_J": 0.0
+        },
+        "mesh_reuse": {
+          "generation_count": 1,
+          "import_count": 1,
+          "node_count": 81,
+          "triangle_count": 128,
+          "same_nodes_elements_material_points_for_complete_pass": true
+        }
+      },
+      "spatial": {
+        "pass": {
+          "target_position_count": 10,
+          "history_row_count_including_final_unloaded": 11,
+          "total_transition_substep_count": 20,
+          "total_retry_count": 0,
+          "maximum_newton_iterations": 2,
+          "maximum_balance_residual_N": 1.5888218580782548e-14
+        },
+        "maximum_response": {
+          "maximum_displacement_m": 1.4087196117071514e-08,
+          "maximum_displacement_position_id": 7,
+          "maximum_equivalent_plastic_strain": 0.0,
+          "maximum_plastic_position_id": 0,
+          "maximum_plastic_element_count": 0,
+          "accumulated_plastic_dissipation_J": 0.0
+        },
+        "final_unloaded": {
+          "external_force_N": [
+            0.0,
+            0.0
+          ],
+          "external_force_norm_N": 0.0,
+          "fixed_reaction_N": [
+            -2.674218740063719e-16,
+            -6.811735798183687e-16
+          ],
+          "balance_residual_N": 7.317867889895603e-16,
+          "maximum_residual_displacement_m": 1.7093603126950816e-24,
+          "von_mises_area_weighted_mean_Pa": 1.2594886546959142e-10,
+          "von_mises_area_weighted_p95_Pa": 2.880730250713696e-10,
+          "von_mises_area_weighted_p99_Pa": 3.841884423417407e-10,
+          "maximum_equivalent_plastic_strain": 0.0,
+          "plastic_element_count": 0,
+          "plastic_element_fraction": 0.0,
+          "accumulated_plastic_dissipation_J": 0.0
+        },
+        "mesh_reuse": {
+          "generation_count": 1,
+          "import_count": 1,
+          "node_count": 81,
+          "triangle_count": 128,
+          "same_nodes_elements_material_points_for_complete_pass": true
+        }
+      }
+    },
+    "comparison": {
+      "total_force_history_identical": true,
+      "maximum_nodal_load_difference_N": 10.569694843174444,
+      "maximum_component_projection_residual_N": 1.0658141036401503e-14,
+      "uniform_fallback_component_count": 0
+    }
+  },
+  "synthetic_plastic": {
+    "output": "D:\\CODEX\\project-Grinding.CAE-3.8.0\\outputs\\numerical_381_1790338255\\synthetic_plastic",
+    "elapsed_s": 35.4529999999977,
+    "force": {
+      "Ft_N": 40.99205356658007,
+      "Fn_N": 61.53914249621476,
+      "power_W": 819.8410713316014,
+      "components": {
+        "plastic_t_N": 0.002286285011254594,
+        "plastic_n_N": 0.006599731807790493,
+        "removal_t_N": 9.447199144265065,
+        "removal_n_N": 27.301260662028838,
+        "rake_t_N": 16.575871259058836,
+        "rake_n_N": 9.574450342501834,
+        "wear_n_N": 24.656831759876297,
+        "wear_t_N": 14.966696878244912
+      },
+      "counts": {
+        "sampled": 1544,
+        "static": 272,
+        "dynamic": 210,
+        "ploughing": 40,
+        "transition": 60,
+        "cutting": 110
+      }
+    },
+    "routes": {
+      "baseline": {
+        "pass": {
+          "target_position_count": 10,
+          "history_row_count_including_final_unloaded": 11,
+          "total_transition_substep_count": 20,
+          "total_retry_count": 0,
+          "maximum_newton_iterations": 8,
+          "maximum_balance_residual_N": 5.1315400022948466e-14
+        },
+        "maximum_response": {
+          "maximum_displacement_m": 4.1328646943910036e-07,
+          "maximum_displacement_position_id": 6,
+          "maximum_equivalent_plastic_strain": 0.00018205493132267045,
+          "maximum_plastic_position_id": 8,
+          "maximum_plastic_element_count": 94,
+          "accumulated_plastic_dissipation_J": 1.1769277958013484e-05
+        },
+        "final_unloaded": {
+          "external_force_N": [
+            0.0,
+            0.0
+          ],
+          "external_force_norm_N": 0.0,
+          "fixed_reaction_N": [
+            4.0870085094013575e-14,
+            3.1030733538273125e-14
+          ],
+          "balance_residual_N": 5.1315400022948466e-14,
+          "maximum_residual_displacement_m": 3.967395805159737e-07,
+          "von_mises_area_weighted_mean_Pa": 181127.2799989779,
+          "von_mises_area_weighted_p95_Pa": 434414.95821747836,
+          "von_mises_area_weighted_p99_Pa": 555065.5658978999,
+          "maximum_equivalent_plastic_strain": 0.00018205493132267045,
+          "plastic_element_count": 94,
+          "plastic_element_fraction": 0.734375,
+          "accumulated_plastic_dissipation_J": 1.1769277958013484e-05
+        },
+        "mesh_reuse": {
+          "generation_count": 1,
+          "import_count": 1,
+          "node_count": 81,
+          "triangle_count": 128,
+          "same_nodes_elements_material_points_for_complete_pass": true
+        }
+      },
+      "spatial": {
+        "pass": {
+          "target_position_count": 10,
+          "history_row_count_including_final_unloaded": 11,
+          "total_transition_substep_count": 20,
+          "total_retry_count": 0,
+          "maximum_newton_iterations": 8,
+          "maximum_balance_residual_N": 1.772208174111933e-14
+        },
+        "maximum_response": {
+          "maximum_displacement_m": 3.3579811366974754e-07,
+          "maximum_displacement_position_id": 8,
+          "maximum_equivalent_plastic_strain": 0.0001579772309882395,
+          "maximum_plastic_position_id": 8,
+          "maximum_plastic_element_count": 101,
+          "accumulated_plastic_dissipation_J": 1.0102801423375748e-05
+        },
+        "final_unloaded": {
+          "external_force_N": [
+            0.0,
+            0.0
+          ],
+          "external_force_norm_N": 0.0,
+          "fixed_reaction_N": [
+            -5.412337245047638e-15,
+            1.687538997430238e-14
+          ],
+          "balance_residual_N": 1.772208174111933e-14,
+          "maximum_residual_displacement_m": 3.2315731680234655e-07,
+          "von_mises_area_weighted_mean_Pa": 191943.37805706574,
+          "von_mises_area_weighted_p95_Pa": 408626.9184356436,
+          "von_mises_area_weighted_p99_Pa": 525703.7984629935,
+          "maximum_equivalent_plastic_strain": 0.0001579772309882395,
+          "plastic_element_count": 101,
+          "plastic_element_fraction": 0.7890625,
+          "accumulated_plastic_dissipation_J": 1.0102801423375748e-05
+        },
+        "mesh_reuse": {
+          "generation_count": 1,
+          "import_count": 1,
+          "node_count": 81,
+          "triangle_count": 128,
+          "same_nodes_elements_material_points_for_complete_pass": true
+        }
+      }
+    },
+    "comparison": {
+      "total_force_history_identical": true,
+      "maximum_nodal_load_difference_N": 9.845807780204174,
+      "maximum_component_projection_residual_N": 7.105427357601002e-15,
+      "uniform_fallback_component_count": 0
+    }
+  },
+  "direction_diagnostic": {
+    "baseline": {
+      "forward_m": 1.7859314879813776e-08,
+      "reverse_m": 1.778303225898856e-08,
+      "relative_difference": 0.004271307233147973
+    },
+    "spatial": {
+      "forward_m": 1.4117244857415644e-08,
+      "reverse_m": 1.4087196117071514e-08,
+      "relative_difference": 0.0021285130808186884
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "literature_history_schema_version": 1,
+  "literature": {
+    "schema_version": 2,
+    "reference_case": {
+      "schema_version": 1,
+      "unit_system": "SI",
+      "source": "stochastic_eq40",
+      "material_id": "440C_zhang2017_literature",
+      "yield_stress_Pa": 225000000.0,
+      "fracture_stress_Pa": 540000000.0,
+      "cone_half_angle_rad": 1.047,
+      "friction_coefficient": 0.607,
+      "formula_convention": "continuous_projection",
+      "wheel_diameter_m": 0.3,
+      "width_m": 0.05,
+      "depth_m": 1.4999999999999999e-05,
+      "wheel_speed_m_s": 20.0,
+      "feed_speed_m_s": 0.03333333333333333,
+      "grain_min_m": 0.000158,
+      "grain_max_m": 0.000202,
+      "organization_number": 12,
+      "seed": 2017,
+      "vibration_steps": 800,
+      "wear_coefficient_N_m": 5.283606805687778,
+      "wear_provenance": "Reference fit: paper Fig18 dry predicted Fn=65.53 N, seeds 2017..2032, finite_entry, relief=90 um, continuous_projection, Table6 conditions. Normal-only ensemble inverse; K1=5.283606805687778 N m; not independent experimental validation. Kept fixed when process is changed; altered geometry/boundary/material requires new calibration.",
+      "depths_m": []
+    },
+    "relief_depth_m": 8.999999999999999e-05,
+    "boundary_rule": "finite_entry",
+    "reconstruction_provenance": "bounded_uniform_recess_v1: fixed dressing plane z=0; recess uniform over half the mean grain diameter. Maximum-entropy closure given this bounded support; unmeasured geometry assumption, not a paper datum. Truncated Table 6 grain diameters; independent axial tracks; boundary selected explicitly by boundary_rule."
+  },
+  "history_template": {
+    "history_pass_schema_version": 1,
+    "unit_system": "SI",
+    "model_type": "fixed_mesh_complete_single_pass_elastoplastic_history",
+    "moving_load_pass": {
+      "moving_load_pass_schema_version": 1,
+      "unit_system": "SI",
+      "model_type": "fixed_mesh_complete_single_pass_moving_load",
+      "reference_case": {
+        "single_position_elastoplastic_schema_version": 1,
+        "unit_system": "SI",
+        "model_type": "single_position_evolved_surface_elastoplastic_loading_unloading",
+        "pass_load": {
+          "pass_load_schema_version": 1,
+          "unit_system": "SI",
+          "model_type": "single_pass_contact_ratio_empirical_load",
+          "trajectory": {
+            "trajectory_schema_version": 1,
+            "unit_system": "SI",
+            "model_type": "single_pass_ideal_wheel_profile",
+            "workpiece": {
+              "length_m": 0.006,
+              "original_surface_height_m": 0.002
+            },
+            "wheel": {
+              "diameter_m": 0.3
+            },
+            "single_pass": {
+              "depth_of_cut_m": 1.4999999999999999e-05,
+              "relative_feed_direction": "positive_x",
+              "wheel_lowest_point_x_m": 0.003
+            },
+            "sampling": {
+              "base_point_count": 401
+            }
+          },
+          "force_model": {
+            "force_model_schema_version": 1,
+            "unit_system": "SI",
+            "model_type": "specific_grinding_energy_force_ratio",
+            "process": {
+              "wheel_surface_speed_m_per_s": 20.0,
+              "workpiece_feed_speed_m_per_s": 0.03333333333333333,
+              "depth_of_cut_m": 1.4999999999999999e-05,
+              "grinding_width_m": 0.05,
+              "wheel_diameter_m": 0.3
+            },
+            "calibration": {
+              "specific_grinding_energy_J_per_m3": 1.0,
+              "normal_to_tangential_force_ratio": 1.0,
+              "calibration_id": "literature_history_runtime_placeholder",
+              "specific_grinding_energy_source": "Replaced by recomputed literature force before any solve.",
+              "force_ratio_source": "Replaced by recomputed literature force before any solve.",
+              "applicability_notes": "Schema placeholder only; never an applied force or material calibration."
+            }
+          },
+          "force_mapping": {
+            "boundary": "ideal_top_surface",
+            "distribution": "uniform_over_effective_projected_interval",
+            "tangential_force_direction": "positive_x"
+          }
+        },
+        "material": {
+          "E": 210000000000.0,
+          "nu": 0.3,
+          "yield_strength": 225000000.0,
+          "tangent_modulus": 2000000000.0
+        },
+        "mesh": {
+          "target_size": 0.0005
+        },
+        "analysis": {
+          "type": "plane_strain",
+          "thickness": 0.05
+        },
+        "fixed_boundary": {
+          "side": "bottom",
+          "components": [
+            "x",
+            "y"
+          ]
+        },
+        "increments": {
+          "loading_step_count": 8,
+          "unloading_step_count": 8
+        },
+        "newton": {
+          "residual_relative_tolerance": 1e-08,
+          "residual_absolute_tolerance_N": 1e-06,
+          "displacement_relative_tolerance": 1e-08,
+          "displacement_absolute_tolerance_m": 1e-14,
+          "maximum_iterations": 40
+        },
+        "step_control": {
+          "allow_reduction": true,
+          "minimum_load_factor_increment": 0.0001,
+          "maximum_retries": 10
+        }
+      },
+      "pass": {
+        "range": "complete_single_pass",
+        "base_position_count": 5,
+        "retain_key_position_output": true
+      }
+    },
+    "transition": {
+      "base_substep_count": 2,
+      "final_unloading_substep_count": 4,
+      "allow_reduction": true,
+      "minimum_substep_fraction": 0.03125,
+      "maximum_retries": 8
+    },
+    "snapshot_retention": {
+      "retain_key_positions": true,
+      "retain_maximum_plastic_state": true
+    }
+  },
+  "material_provenance": "{\"applicability_notes\": \"仅用于工作流演示，工程应用前需要实验或可靠文献标定。\", \"behavior\": \"elastoplastic\", \"calibration_status\": \"demonstration_not_calibrated\", \"elastic_modulus_Pa\": 210000000000.0, \"family\": \"ductile_metal\", \"label\": \"440C文献屈服 + 演示弹性/硬化参数\", \"material_schema_version\": 1, \"parameter_source\": \"builtin_demo\", \"poisson_ratio\": 0.3, \"source_description\": \"Yield 225 MPa from Zhang2017 unless explicitly changed for a synthetic plastic exercise; E=210 GPa, nu=0.3, Et=2 GPa are uncalibrated demonstration inputs.\", \"status\": \"completed\", \"tangent_modulus_Pa\": 2000000000.0, \"yield_strength_Pa\": 225000000.0}",
+  "projection": "circumferential_strip_p1_contact_ratio_v1"
+}

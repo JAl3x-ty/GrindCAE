@@ -1,0 +1,24 @@
+{
+  "original_source_test_count": 385,
+  "baseline_note": "Baseline captured at end of first dev0 implementation, not before first development.",
+  "original_source_test_changes": [],
+  "host_snapshot_count": 193,
+  "original_host_changes": [],
+  "parallel_host_modified": [
+    "presentation_labels.py",
+    "__init__.py",
+    "gui\\analysis.py",
+    "gui\\analysis_results.py",
+    "gui\\analysis_runner.py",
+    "gui\\analysis_workspace.py",
+    "gui\\app.py",
+    "gui\\origin_export.py",
+    "gui\\project.py",
+    "gui\\project_archive.py",
+    "gui\\result_catalog.py",
+    "gui\\workbench.py"
+  ],
+  "parallel_host_added": [
+    "gui\\literature_integration.py"
+  ]
+}

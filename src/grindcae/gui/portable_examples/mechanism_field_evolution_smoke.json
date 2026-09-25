@@ -1,0 +1,74 @@
+{
+  "mechanism_history_pass_schema_version": 1,
+  "unit_system": "SI",
+  "model_type": "fixed_mesh_complete_single_pass_statistical_mechanism_elastoplastic_history",
+  "baseline_history_pass": {
+    "history_pass_schema_version": 1,
+    "unit_system": "SI",
+    "model_type": "fixed_mesh_complete_single_pass_elastoplastic_history",
+    "moving_load_pass": {
+      "moving_load_pass_schema_version": 1,
+      "unit_system": "SI",
+      "model_type": "fixed_mesh_complete_single_pass_moving_load",
+      "reference_case": {
+        "single_position_elastoplastic_schema_version": 1,
+        "unit_system": "SI",
+        "model_type": "single_position_evolved_surface_elastoplastic_loading_unloading",
+        "pass_load": {
+          "pass_load_schema_version": 1,
+          "unit_system": "SI",
+          "model_type": "single_pass_contact_ratio_empirical_load",
+          "trajectory": {
+            "trajectory_schema_version": 1,
+            "unit_system": "SI",
+            "model_type": "single_pass_ideal_wheel_profile",
+            "workpiece": {"length_m": 0.1, "original_surface_height_m": 0.02},
+            "wheel": {"diameter_m": 0.2},
+            "single_pass": {"depth_of_cut_m": 0.00002, "relative_feed_direction": "positive_x", "wheel_lowest_point_x_m": 0.05},
+            "sampling": {"base_point_count": 401}
+          },
+          "force_model": {
+            "force_model_schema_version": 1,
+            "unit_system": "SI",
+            "model_type": "specific_grinding_energy_force_ratio",
+            "process": {"wheel_surface_speed_m_per_s": 30.0, "workpiece_feed_speed_m_per_s": 0.1, "depth_of_cut_m": 0.00002, "grinding_width_m": 0.01, "wheel_diameter_m": 0.2},
+            "calibration": {"specific_grinding_energy_J_per_m3": 5000000000000.0, "normal_to_tangential_force_ratio": 2.5, "calibration_id": "portable_mechanism_field_evolution_smoke_unvalidated", "specific_grinding_energy_source": "Portable smoke demonstration only; not experimentally calibrated.", "force_ratio_source": "Portable smoke demonstration only; not experimentally calibrated.", "applicability_notes": "Release verification case only; not validated for a production grinding process."}
+          },
+          "force_mapping": {"boundary": "ideal_top_surface", "distribution": "uniform_over_effective_projected_interval", "tangential_force_direction": "positive_x"}
+        },
+        "material": {"E": 210000000000.0, "nu": 0.3, "yield_strength": 250000000.0, "tangent_modulus": 2000000000.0},
+        "mesh": {"target_size": 0.003},
+        "analysis": {"type": "plane_strain", "thickness": 0.01},
+        "fixed_boundary": {"side": "bottom", "components": ["x", "y"]},
+        "increments": {"loading_step_count": 8, "unloading_step_count": 8},
+        "newton": {"residual_relative_tolerance": 1e-08, "residual_absolute_tolerance_N": 1e-06, "displacement_relative_tolerance": 1e-08, "displacement_absolute_tolerance_m": 1e-14, "maximum_iterations": 40},
+        "step_control": {"allow_reduction": true, "minimum_load_factor_increment": 0.0001, "maximum_retries": 10}
+      },
+      "pass": {"range": "complete_single_pass", "base_position_count": 5, "retain_key_position_output": true}
+    },
+    "transition": {"base_substep_count": 2, "final_unloading_substep_count": 4, "allow_reduction": true, "minimum_substep_fraction": 0.03125, "maximum_retries": 8},
+    "snapshot_retention": {"retain_key_positions": true, "retain_maximum_plastic_state": true}
+  },
+  "statistical_grain_load": {
+    "statistical_grain_load_schema_version": 1,
+    "unit_system": "SI",
+    "model_type": "statistical_equivalent_grain_mechanism_load",
+    "mechanism_force": {
+      "mechanism_force_schema_version": 1,
+      "unit_system": "SI",
+      "model_type": "ductile_metal_three_mechanism_force_decomposition",
+      "force_model": {
+        "force_model_schema_version": 1,
+        "unit_system": "SI",
+        "model_type": "specific_grinding_energy_force_ratio",
+        "process": {"wheel_surface_speed_m_per_s": 30.0, "workpiece_feed_speed_m_per_s": 0.1, "depth_of_cut_m": 0.00002, "grinding_width_m": 0.01, "wheel_diameter_m": 0.2},
+        "calibration": {"specific_grinding_energy_J_per_m3": 5000000000000.0, "normal_to_tangential_force_ratio": 2.5, "calibration_id": "portable_mechanism_field_evolution_smoke_unvalidated", "specific_grinding_energy_source": "Portable smoke demonstration only; not experimentally calibrated.", "force_ratio_source": "Portable smoke demonstration only; not experimentally calibrated.", "applicability_notes": "Release verification case only; not validated for a production grinding process."}
+      },
+      "mechanism_model": {"parameter_source": "builtin_preset", "preset_id": "ductile_alloy_steel_demo"}
+    },
+    "wheel_specification": {"resolution_path": "JIS_hash", "abrasive_material": "aluminum_oxide", "grit_designation": "#5000"},
+    "grain_population": {"active_density_factor": 0.002, "minimum_equivalent_group_count": 8, "maximum_equivalent_group_count": 16, "random_seed": 5000},
+    "load_distribution": {"point_count": 201, "kernel_width_factor": 2.0, "rubbing_kernel_scale": 1.4, "ploughing_kernel_scale": 1.0, "cutting_kernel_scale": 0.7}
+  },
+  "comparison": {"mode": "uniform_vs_statistical_mechanism", "require_identical_total_force_history": true, "retain_both_final_fields": true}
+}

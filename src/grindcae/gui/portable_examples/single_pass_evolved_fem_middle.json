@@ -1,0 +1,57 @@
+{
+  "evolved_fem_schema_version": 1,
+  "unit_system": "SI",
+  "model_type": "single_pass_evolved_surface_empirical_load_plane_stress",
+  "pass_load": {
+    "pass_load_schema_version": 1,
+    "unit_system": "SI",
+    "model_type": "single_pass_contact_ratio_empirical_load",
+    "trajectory": {
+      "trajectory_schema_version": 1,
+      "unit_system": "SI",
+      "model_type": "single_pass_ideal_wheel_profile",
+      "workpiece": {"length_m": 0.1, "original_surface_height_m": 0.02},
+      "wheel": {"diameter_m": 0.2},
+      "single_pass": {
+        "depth_of_cut_m": 0.00002,
+        "relative_feed_direction": "positive_x",
+        "wheel_lowest_point_x_m": 0.05
+      },
+      "sampling": {"base_point_count": 401}
+    },
+    "force_model": {
+      "force_model_schema_version": 1,
+      "unit_system": "SI",
+      "model_type": "specific_grinding_energy_force_ratio",
+      "process": {
+        "wheel_surface_speed_m_per_s": 30.0,
+        "workpiece_feed_speed_m_per_s": 0.1,
+        "depth_of_cut_m": 0.00002,
+        "grinding_width_m": 0.01,
+        "wheel_diameter_m": 0.2
+      },
+      "calibration": {
+        "specific_grinding_energy_J_per_m3": 50000000000.0,
+        "normal_to_tangential_force_ratio": 2.5,
+        "calibration_id": "demo_unvalidated",
+        "specific_grinding_energy_source": "Demonstration value only; replace with experiment or literature.",
+        "force_ratio_source": "Demonstration value only; replace with experiment or literature.",
+        "applicability_notes": "Example only; not validated for a production grinding process."
+      }
+    },
+    "force_mapping": {
+      "boundary": "ideal_top_surface",
+      "distribution": "uniform_over_effective_projected_interval",
+      "tangential_force_direction": "positive_x"
+    }
+  },
+  "material": {"E": 210000000000.0, "nu": 0.3},
+  "mesh": {"target_size": 0.002},
+  "analysis": {"type": "plane_stress", "thickness": 0.01},
+  "boundaries": [
+    {"side": "bottom", "role": "fixed"},
+    {"side": "top", "role": "contact"},
+    {"side": "left", "role": "free"},
+    {"side": "right", "role": "free"}
+  ]
+}

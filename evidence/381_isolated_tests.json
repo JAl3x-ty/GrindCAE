@@ -1,0 +1,102 @@
+[
+  {
+    "file": "tests\\host_regression\\test_elastoplastic_fem_models.py",
+    "exit_code": 0,
+    "passed": 18
+  },
+  {
+    "file": "tests\\host_regression\\test_elastoplastic_tangent.py",
+    "exit_code": 0,
+    "passed": 10
+  },
+  {
+    "file": "tests\\host_regression\\test_gui_analysis_inputs.py",
+    "exit_code": 0,
+    "passed": 22
+  },
+  {
+    "file": "tests\\host_regression\\test_gui_analysis_results.py",
+    "exit_code": 0,
+    "passed": 10
+  },
+  {
+    "file": "tests\\host_regression\\test_gui_analysis_runner.py",
+    "exit_code": 0,
+    "passed": 16
+  },
+  {
+    "file": "tests\\host_regression\\test_gui_analysis_workspace.py",
+    "exit_code": 0,
+    "passed": 4
+  },
+  {
+    "file": "tests\\host_regression\\test_gui_app.py",
+    "exit_code": 0,
+    "passed": 30
+  },
+  {
+    "file": "tests\\host_regression\\test_gui_origin_export.py",
+    "exit_code": 0,
+    "passed": 3
+  },
+  {
+    "file": "tests\\host_regression\\test_gui_project.py",
+    "exit_code": 0,
+    "passed": 25
+  },
+  {
+    "file": "tests\\host_regression\\test_gui_result_catalog.py",
+    "exit_code": 0,
+    "passed": 11
+  },
+  {
+    "file": "tests\\host_regression\\test_history_pass_loading.py",
+    "exit_code": 0,
+    "passed": 1
+  },
+  {
+    "file": "tests\\host_regression\\test_history_pass_solver.py",
+    "exit_code": 0,
+    "passed": 3
+  },
+  {
+    "file": "tests\\host_regression\\test_moving_load_pass_models.py",
+    "exit_code": 0,
+    "passed": 22
+  },
+  {
+    "file": "tests\\host_regression\\test_presentation_labels.py",
+    "exit_code": 0,
+    "passed": 8
+  },
+  {
+    "file": "tests\\test_desktop.py",
+    "exit_code": 0,
+    "passed": 6
+  },
+  {
+    "file": "tests\\test_gui_viewport_381.py",
+    "exit_code": 0,
+    "passed": 11
+  },
+  {
+    "file": "tests\\test_integrated_workbench.py",
+    "exit_code": 0,
+    "passed": 5
+  },
+  {
+    "file": "tests\\test_kernel.py",
+    "exit_code": 0,
+    "passed": 33
+  },
+  {
+    "file": "tests\\test_literature_history.py",
+    "exit_code": 0,
+    "passed": 29
+  },
+  {
+    "file": "tests\\test_reconstruction.py",
+    "exit_code": 0,
+    "passed": 7
+  }
+]

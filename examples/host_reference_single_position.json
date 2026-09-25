@@ -1,0 +1,91 @@
+{
+  "single_position_elastoplastic_schema_version": 1,
+  "unit_system": "SI",
+  "model_type": "single_position_evolved_surface_elastoplastic_loading_unloading",
+  "pass_load": {
+    "pass_load_schema_version": 1,
+    "unit_system": "SI",
+    "model_type": "single_pass_contact_ratio_empirical_load",
+    "trajectory": {
+      "trajectory_schema_version": 1,
+      "unit_system": "SI",
+      "model_type": "single_pass_ideal_wheel_profile",
+      "workpiece": {
+        "length_m": 0.1,
+        "original_surface_height_m": 0.02
+      },
+      "wheel": {
+        "diameter_m": 0.2
+      },
+      "single_pass": {
+        "depth_of_cut_m": 0.00002,
+        "relative_feed_direction": "positive_x",
+        "wheel_lowest_point_x_m": 0.05
+      },
+      "sampling": {
+        "base_point_count": 401
+      }
+    },
+    "force_model": {
+      "force_model_schema_version": 1,
+      "unit_system": "SI",
+      "model_type": "specific_grinding_energy_force_ratio",
+      "process": {
+        "wheel_surface_speed_m_per_s": 30.0,
+        "workpiece_feed_speed_m_per_s": 0.1,
+        "depth_of_cut_m": 0.00002,
+        "grinding_width_m": 0.01,
+        "wheel_diameter_m": 0.2
+      },
+      "calibration": {
+        "specific_grinding_energy_J_per_m3": 5000000000000.0,
+        "normal_to_tangential_force_ratio": 2.5,
+        "calibration_id": "phase_6a3_internal_plasticity_demo_unvalidated",
+        "specific_grinding_energy_source": "Internal Phase 6A.3 constitutive-integration demonstration value; replace with experiment or literature.",
+        "force_ratio_source": "Demonstration value only; replace with experiment or literature.",
+        "applicability_notes": "Intentionally elevated internal benchmark load to exercise yielding; not validated for a production grinding process."
+      }
+    },
+    "force_mapping": {
+      "boundary": "ideal_top_surface",
+      "distribution": "uniform_over_effective_projected_interval",
+      "tangential_force_direction": "positive_x"
+    }
+  },
+  "material": {
+    "E": 210000000000.0,
+    "nu": 0.3,
+    "yield_strength": 250000000.0,
+    "tangent_modulus": 2000000000.0
+  },
+  "mesh": {
+    "target_size": 0.003
+  },
+  "analysis": {
+    "type": "plane_strain",
+    "thickness": 0.01
+  },
+  "fixed_boundary": {
+    "side": "bottom",
+    "components": [
+      "x",
+      "y"
+    ]
+  },
+  "increments": {
+    "loading_step_count": 8,
+    "unloading_step_count": 8
+  },
+  "newton": {
+    "residual_relative_tolerance": 1e-08,
+    "residual_absolute_tolerance_N": 1e-06,
+    "displacement_relative_tolerance": 1e-08,
+    "displacement_absolute_tolerance_m": 1e-14,
+    "maximum_iterations": 40
+  },
+  "step_control": {
+    "allow_reduction": true,
+    "minimum_load_factor_increment": 0.0001,
+    "maximum_retries": 10
+  }
+}

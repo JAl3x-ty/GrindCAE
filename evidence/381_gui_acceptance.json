@@ -1,0 +1,396 @@
+{
+  "project": "D:\\CODEX\\project-Grinding.CAE-3.8.0\\outputs\\acceptance_381_1790338085\\验收示例.gcae",
+  "output": "D:\\CODEX\\project-Grinding.CAE-3.8.0\\outputs\\acceptance_381_1790338085\\result",
+  "archive": "D:\\CODEX\\project-Grinding.CAE-3.8.0\\outputs\\acceptance_381_1790338085\\验收归档.gcae-archive",
+  "origin_tables": 8,
+  "restored_project": "D:\\CODEX\\project-Grinding.CAE-3.8.0\\outputs\\acceptance_381_1790338085\\archive_restored\\验收示例.gcae",
+  "progress": "正式计算：spatial：已收敛并提交位置 10/10\n进度：100.0%（20/20）  已用：20秒  预计剩余：0秒",
+  "summary": {
+    "result_format": "grindcae_literature_elastoplastic_history_v1",
+    "normalized_input": {
+      "literature_history_schema_version": 1,
+      "literature": {
+        "schema_version": 2,
+        "reference_case": {
+          "schema_version": 1,
+          "unit_system": "SI",
+          "source": "stochastic_eq40",
+          "material_id": "440C_zhang2017_literature",
+          "yield_stress_Pa": 225000000.0,
+          "fracture_stress_Pa": 540000000.0,
+          "cone_half_angle_rad": 1.047,
+          "friction_coefficient": 0.607,
+          "formula_convention": "continuous_projection",
+          "wheel_diameter_m": 0.3,
+          "width_m": 0.05,
+          "depth_m": 1.4999999999999999e-05,
+          "wheel_speed_m_s": 20.0,
+          "feed_speed_m_s": 0.03333333333333333,
+          "grain_min_m": 0.000158,
+          "grain_max_m": 0.000202,
+          "organization_number": 12,
+          "seed": 2017,
+          "vibration_steps": 800,
+          "wear_coefficient_N_m": 5.283606805687778,
+          "wear_provenance": "Reference fit: paper Fig18 dry predicted Fn=65.53 N, seeds 2017..2032, finite_entry, relief=90 um, continuous_projection, Table6 conditions. Normal-only ensemble inverse; K1=5.283606805687778 N m; not independent experimental validation. Kept fixed when process is changed; altered geometry/boundary/material requires new calibration.",
+          "depths_m": []
+        },
+        "relief_depth_m": 8.999999999999999e-05,
+        "boundary_rule": "finite_entry",
+        "reconstruction_provenance": "bounded_uniform_recess_v1: fixed dressing plane z=0; recess uniform over half the mean grain diameter. Maximum-entropy closure given this bounded support; unmeasured geometry assumption, not a paper datum. Truncated Table 6 grain diameters; independent axial tracks; boundary selected explicitly by boundary_rule."
+      },
+      "history_template": {
+        "history_pass_schema_version": 1,
+        "unit_system": "SI",
+        "model_type": "fixed_mesh_complete_single_pass_elastoplastic_history",
+        "moving_load_pass": {
+          "moving_load_pass_schema_version": 1,
+          "unit_system": "SI",
+          "model_type": "fixed_mesh_complete_single_pass_moving_load",
+          "reference_case": {
+            "single_position_elastoplastic_schema_version": 1,
+            "unit_system": "SI",
+            "model_type": "single_position_evolved_surface_elastoplastic_loading_unloading",
+            "pass_load": {
+              "pass_load_schema_version": 1,
+              "unit_system": "SI",
+              "model_type": "single_pass_contact_ratio_empirical_load",
+              "trajectory": {
+                "trajectory_schema_version": 1,
+                "unit_system": "SI",
+                "model_type": "single_pass_ideal_wheel_profile",
+                "workpiece": {
+                  "length_m": 0.006,
+                  "original_surface_height_m": 0.002
+                },
+                "wheel": {
+                  "diameter_m": 0.3
+                },
+                "single_pass": {
+                  "depth_of_cut_m": 1.4999999999999999e-05,
+                  "relative_feed_direction": "positive_x",
+                  "wheel_lowest_point_x_m": 0.003
+                },
+                "sampling": {
+                  "base_point_count": 401
+                }
+              },
+              "force_model": {
+                "force_model_schema_version": 1,
+                "unit_system": "SI",
+                "model_type": "specific_grinding_energy_force_ratio",
+                "process": {
+                  "wheel_surface_speed_m_per_s": 20.0,
+                  "workpiece_feed_speed_m_per_s": 0.03333333333333333,
+                  "depth_of_cut_m": 1.4999999999999999e-05,
+                  "grinding_width_m": 0.05,
+                  "wheel_diameter_m": 0.3
+                },
+                "calibration": {
+                  "specific_grinding_energy_J_per_m3": 1.0,
+                  "normal_to_tangential_force_ratio": 1.0,
+                  "calibration_id": "literature_history_runtime_placeholder",
+                  "specific_grinding_energy_source": "Replaced by recomputed literature force before any solve.",
+                  "force_ratio_source": "Replaced by recomputed literature force before any solve.",
+                  "applicability_notes": "Schema placeholder only; never an applied force or material calibration."
+                }
+              },
+              "force_mapping": {
+                "boundary": "ideal_top_surface",
+                "distribution": "uniform_over_effective_projected_interval",
+                "tangential_force_direction": "positive_x"
+              }
+            },
+            "material": {
+              "E": 210000000000.0,
+              "nu": 0.3,
+              "yield_strength": 225000000.0,
+              "tangent_modulus": 2000000000.0
+            },
+            "mesh": {
+              "target_size": 0.0005
+            },
+            "analysis": {
+              "type": "plane_strain",
+              "thickness": 0.05
+            },
+            "fixed_boundary": {
+              "side": "bottom",
+              "components": [
+                "x",
+                "y"
+              ]
+            },
+            "increments": {
+              "loading_step_count": 8,
+              "unloading_step_count": 8
+            },
+            "newton": {
+              "residual_relative_tolerance": 1e-08,
+              "residual_absolute_tolerance_N": 1e-06,
+              "displacement_relative_tolerance": 1e-08,
+              "displacement_absolute_tolerance_m": 1e-14,
+              "maximum_iterations": 40
+            },
+            "step_control": {
+              "allow_reduction": true,
+              "minimum_load_factor_increment": 0.0001,
+              "maximum_retries": 10
+            }
+          },
+          "pass": {
+            "range": "complete_single_pass",
+            "base_position_count": 5,
+            "retain_key_position_output": true
+          }
+        },
+        "transition": {
+          "base_substep_count": 2,
+          "final_unloading_substep_count": 4,
+          "allow_reduction": true,
+          "minimum_substep_fraction": 0.03125,
+          "maximum_retries": 8
+        },
+        "snapshot_retention": {
+          "retain_key_positions": true,
+          "retain_maximum_plastic_state": true
+        }
+      },
+      "material_provenance": "{\"applicability_notes\": \"仅用于工作流演示，工程应用前需要实验或可靠文献标定。\", \"behavior\": \"elastoplastic\", \"calibration_status\": \"demonstration_not_calibrated\", \"elastic_modulus_Pa\": 210000000000.0, \"family\": \"ductile_metal\", \"label\": \"440C文献屈服 + 演示弹性/硬化参数\", \"material_schema_version\": 1, \"parameter_source\": \"builtin_demo\", \"poisson_ratio\": 0.3, \"source_description\": \"Yield 225 MPa from Zhang2017 unless explicitly changed for a synthetic plastic exercise; E=210 GPa, nu=0.3, Et=2 GPa are uncalibrated demonstration inputs.\", \"status\": \"completed\", \"tangent_modulus_Pa\": 2000000000.0, \"yield_strength_Pa\": 225000000.0}",
+      "projection": "circumferential_strip_p1_contact_ratio_v1"
+    },
+    "input_fingerprint": "7170d7efa60eb785847771e42e91cf59f6ed70da3de0e8828f9f31109709a654",
+    "unit_system": "SI",
+    "package_version": "3.8.1.dev0",
+    "literature_force": {
+      "Ft_N": 43.81730624272402,
+      "Fn_N": 65.54138202558842,
+      "power_W": 876.3461248544804,
+      "components": {
+        "plastic_t_N": 1.0288282550645673,
+        "plastic_n_N": 2.9698793135057215,
+        "removal_t_N": 9.447199144265065,
+        "removal_n_N": 27.301260662028838,
+        "rake_t_N": 18.37458196514948,
+        "rake_n_N": 10.613410290177557,
+        "wear_n_N": 24.656831759876297,
+        "wear_t_N": 14.966696878244912
+      },
+      "counts": {
+        "sampled": 1544,
+        "static": 272,
+        "dynamic": 210,
+        "ploughing": 40,
+        "transition": 60,
+        "cutting": 110
+      }
+    },
+    "routes": {
+      "baseline": {
+        "pass": {
+          "target_position_count": 10,
+          "history_row_count_including_final_unloaded": 11,
+          "total_transition_substep_count": 20,
+          "total_retry_count": 0,
+          "maximum_newton_iterations": 2,
+          "maximum_balance_residual_N": 1.4210854715202004e-14
+        },
+        "maximum_response": {
+          "maximum_displacement_m": 1.7859314879813776e-08,
+          "maximum_displacement_position_id": 6,
+          "maximum_equivalent_plastic_strain": 0.0,
+          "maximum_plastic_position_id": 0,
+          "maximum_plastic_element_count": 0,
+          "accumulated_plastic_dissipation_J": 0.0
+        },
+        "final_unloaded": {
+          "external_force_N": [
+            0.0,
+            0.0
+          ],
+          "external_force_norm_N": 0.0,
+          "fixed_reaction_N": [
+            2.0679015082772175e-16,
+            4.342992856483789e-16
+          ],
+          "balance_residual_N": 4.810177086075357e-16,
+          "maximum_residual_displacement_m": 1.3823988880250953e-24,
+          "von_mises_area_weighted_mean_Pa": 1.3612279974761135e-10,
+          "von_mises_area_weighted_p95_Pa": 2.891048906795043e-10,
+          "von_mises_area_weighted_p99_Pa": 5.819970229074322e-10,
+          "maximum_equivalent_plastic_strain": 0.0,
+          "plastic_element_count": 0,
+          "plastic_element_fraction": 0.0,
+          "accumulated_plastic_dissipation_J": 0.0
+        },
+        "mesh_reuse": {
+          "generation_count": 1,
+          "import_count": 1,
+          "node_count": 81,
+          "triangle_count": 128,
+          "same_nodes_elements_material_points_for_complete_pass": true
+        }
+      },
+      "spatial": {
+        "pass": {
+          "target_position_count": 10,
+          "history_row_count_including_final_unloaded": 11,
+          "total_transition_substep_count": 20,
+          "total_retry_count": 0,
+          "maximum_newton_iterations": 2,
+          "maximum_balance_residual_N": 1.5888218580782548e-14
+        },
+        "maximum_response": {
+          "maximum_displacement_m": 1.4117244857415644e-08,
+          "maximum_displacement_position_id": 7,
+          "maximum_equivalent_plastic_strain": 0.0,
+          "maximum_plastic_position_id": 0,
+          "maximum_plastic_element_count": 0,
+          "accumulated_plastic_dissipation_J": 0.0
+        },
+        "final_unloaded": {
+          "external_force_N": [
+            0.0,
+            0.0
+          ],
+          "external_force_norm_N": 0.0,
+          "fixed_reaction_N": [
+            -3.2857139733772845e-17,
+            1.16281887323901e-15
+          ],
+          "balance_residual_N": 1.163282993769068e-15,
+          "maximum_residual_displacement_m": 1.1910790509757898e-24,
+          "von_mises_area_weighted_mean_Pa": 1.4226017283989094e-10,
+          "von_mises_area_weighted_p95_Pa": 3.38522675847714e-10,
+          "von_mises_area_weighted_p99_Pa": 4.608617054215026e-10,
+          "maximum_equivalent_plastic_strain": 0.0,
+          "plastic_element_count": 0,
+          "plastic_element_fraction": 0.0,
+          "accumulated_plastic_dissipation_J": 0.0
+        },
+        "mesh_reuse": {
+          "generation_count": 1,
+          "import_count": 1,
+          "node_count": 81,
+          "triangle_count": 128,
+          "same_nodes_elements_material_points_for_complete_pass": true
+        }
+      }
+    },
+    "comparison": {
+      "total_force_history_identical": true,
+      "maximum_nodal_load_difference_N": 10.569694843174437,
+      "maximum_component_projection_residual_N": 7.105427357601002e-15,
+      "uniform_fallback_component_count": 0
+    },
+    "material_provenance": "{\"applicability_notes\": \"仅用于工作流演示，工程应用前需要实验或可靠文献标定。\", \"behavior\": \"elastoplastic\", \"calibration_status\": \"demonstration_not_calibrated\", \"elastic_modulus_Pa\": 210000000000.0, \"family\": \"ductile_metal\", \"label\": \"440C文献屈服 + 演示弹性/硬化参数\", \"material_schema_version\": 1, \"parameter_source\": \"builtin_demo\", \"poisson_ratio\": 0.3, \"source_description\": \"Yield 225 MPa from Zhang2017 unless explicitly changed for a synthetic plastic exercise; E=210 GPa, nu=0.3, Et=2 GPa are uncalibrated demonstration inputs.\", \"status\": \"completed\", \"tangent_modulus_Pa\": 2000000000.0, \"yield_strength_Pa\": 225000000.0}",
+    "projection": "circumferential_strip_p1_contact_ratio_v1",
+    "assumptions": [
+      "Circumferential constant-force strips aggregate axial grains; no cross-track geometry.",
+      "u=0 is lower motion-coordinate contact boundary; shallow wheel coordinates map to exact host arc projection.",
+      "Wear is allocated equally among dynamic grains; width is already included in the total force.",
+      "Partial-contact component totals use contact ratio once; clipped shapes normalize independently.",
+      "A component with no clipped support uses a recorded uniform shape at the same target force.",
+      "Engineering process/yield controls the coupled case; beta/fracture/friction/grit remain literature-page assumptions.",
+      "J2 E/nu/Et come from the engineering material; transfer beyond 440C requires calibration."
+    ],
+    "experimental_validation": "not_verified",
+    "development_status": "3.8.1 implementation pending development verification",
+    "artifacts": {
+      "baseline/final_elements.csv": "baseline/final_elements.csv",
+      "baseline/final_nodes.csv": "baseline/final_nodes.csv",
+      "baseline/final_results.vtu": "baseline/final_results.vtu",
+      "baseline/final_surface_profile.png": "baseline/final_surface_profile.png",
+      "baseline/moving_load_overview.png": "baseline/moving_load_overview.png",
+      "baseline/pass_force_history.png": "baseline/pass_force_history.png",
+      "baseline/pass_history.csv": "baseline/pass_history.csv",
+      "baseline/pass_plastic_history.png": "baseline/pass_plastic_history.png",
+      "baseline/pass_residual_state.png": "baseline/pass_residual_state.png",
+      "baseline/pass_summary.json": "baseline/pass_summary.json",
+      "baseline/reference_mesh.msh": "baseline/reference_mesh.msh",
+      "baseline_final_elements.csv": "baseline_final_elements.csv",
+      "baseline_final_nodes.csv": "baseline_final_nodes.csv",
+      "baseline_final_results.vtu": "baseline_final_results.vtu",
+      "baseline_final_surface_profile.png": "baseline_final_surface_profile.png",
+      "baseline_pass_history.csv": "baseline_pass_history.csv",
+      "baseline_pass_residual_state.png": "baseline_pass_residual_state.png",
+      "force/force_components.png": "force/force_components.png",
+      "force/grains.csv": "force/grains.csv",
+      "force/input.json": "force/input.json",
+      "force/summary.json": "force/summary.json",
+      "force_components.png": "force_components.png",
+      "grains.csv": "grains.csv",
+      "input.json": "input.json",
+      "literature_history_comparison.png": "literature_history_comparison.png",
+      "projection_history.csv": "projection_history.csv",
+      "reference_mesh.msh": "reference_mesh.msh",
+      "resolved_history_input.json": "resolved_history_input.json",
+      "spatial/final_elements.csv": "spatial/final_elements.csv",
+      "spatial/final_nodes.csv": "spatial/final_nodes.csv",
+      "spatial/final_results.vtu": "spatial/final_results.vtu",
+      "spatial/final_surface_profile.png": "spatial/final_surface_profile.png",
+      "spatial/moving_load_overview.png": "spatial/moving_load_overview.png",
+      "spatial/pass_force_history.png": "spatial/pass_force_history.png",
+      "spatial/pass_history.csv": "spatial/pass_history.csv",
+      "spatial/pass_plastic_history.png": "spatial/pass_plastic_history.png",
+      "spatial/pass_residual_state.png": "spatial/pass_residual_state.png",
+      "spatial/pass_summary.json": "spatial/pass_summary.json",
+      "spatial/reference_mesh.msh": "spatial/reference_mesh.msh",
+      "spatial_final_elements.csv": "spatial_final_elements.csv",
+      "spatial_final_nodes.csv": "spatial_final_nodes.csv",
+      "spatial_final_results.vtu": "spatial_final_results.vtu",
+      "spatial_final_surface_profile.png": "spatial_final_surface_profile.png",
+      "spatial_pass_history.csv": "spatial_pass_history.csv",
+      "spatial_pass_residual_state.png": "spatial_pass_residual_state.png",
+      "strip_template.json": "strip_template.json"
+    },
+    "sha256": {
+      "baseline/final_elements.csv": "2d5e30f64048fed2322e57a259422620d12cde32c2654fdb121128aefbce9749",
+      "baseline/final_nodes.csv": "009f5c0896a7f64dbc5047d35f92a8c10b9a934ae104439447f21297d5e39710",
+      "baseline/final_results.vtu": "ccdee6fc103d6d562a626b2bbe870c991a561d3719dc145cc0660ce48c238a29",
+      "baseline/final_surface_profile.png": "87c19e3c6fab36690e68d3976d23da12d64c4e7b78239b9687c208730738c1c2",
+      "baseline/moving_load_overview.png": "2aeaf50f1c9253979951b32eb02580a3461078ae879427f69dea84240ef53f0c",
+      "baseline/pass_force_history.png": "c78db100c2fbee932c2ce3d6f014aab94380ef08beca7c908d4cbada6b00b756",
+      "baseline/pass_history.csv": "73217d3447cdc3ca4484298d97fa96b7b9d32f89bcfe6cfe7ff4de9cf1d88a13",
+      "baseline/pass_plastic_history.png": "cfd77eb2a4b6a52002ffa9d66f64075330fa8a2205d032691ad7b6be71f1d1f9",
+      "baseline/pass_residual_state.png": "53798b1a2d885b6c6129735a9d38bfd908a8efa1584f3f552c1077cba8bac9d2",
+      "baseline/pass_summary.json": "56675f27955284cae174298969a7577842f47e2dfd469ca7d13f020e27f737d5",
+      "baseline/reference_mesh.msh": "406dba0b0f0c9ee8bdbd457b41cc01813fe94639b4615176b86ba6b4123eb9eb",
+      "baseline_final_elements.csv": "2d5e30f64048fed2322e57a259422620d12cde32c2654fdb121128aefbce9749",
+      "baseline_final_nodes.csv": "009f5c0896a7f64dbc5047d35f92a8c10b9a934ae104439447f21297d5e39710",
+      "baseline_final_results.vtu": "ccdee6fc103d6d562a626b2bbe870c991a561d3719dc145cc0660ce48c238a29",
+      "baseline_final_surface_profile.png": "87c19e3c6fab36690e68d3976d23da12d64c4e7b78239b9687c208730738c1c2",
+      "baseline_pass_history.csv": "73217d3447cdc3ca4484298d97fa96b7b9d32f89bcfe6cfe7ff4de9cf1d88a13",
+      "baseline_pass_residual_state.png": "53798b1a2d885b6c6129735a9d38bfd908a8efa1584f3f552c1077cba8bac9d2",
+      "force/force_components.png": "1ae3ea810478ef863477829b23a3fbc736d12c29cbc3beb1034f79c4c97d2cf2",
+      "force/grains.csv": "d044dc281106ee7c26d4229eeff6228585ecc4527894687e791423fc96cc2b3a",
+      "force/input.json": "06d8242ed47d82dcc3bdc27edcfb669eecc32b049ed1d452092bd1f927550bd5",
+      "force/summary.json": "e15a55b314e5aa2be14a4aa8909c9cfb4b62db19a7d1b5cb7dcdf937b9686f9b",
+      "force_components.png": "1ae3ea810478ef863477829b23a3fbc736d12c29cbc3beb1034f79c4c97d2cf2",
+      "grains.csv": "d044dc281106ee7c26d4229eeff6228585ecc4527894687e791423fc96cc2b3a",
+      "input.json": "e5990ec866a402d2bf55c903b38c8bf0dc8a1c7b66f27f110ad751ccfbdbf27d",
+      "literature_history_comparison.png": "3596e4cc9a79f398d4e3e3fcb8c0e7040024288b32274ee72f68443169ca641f",
+      "projection_history.csv": "c7f62cea785fd55f2d969258550806f09d2ff95b3d01f055c52a0b4e9a345d09",
+      "reference_mesh.msh": "406dba0b0f0c9ee8bdbd457b41cc01813fe94639b4615176b86ba6b4123eb9eb",
+      "resolved_history_input.json": "198e89f4c51f07030a74d0810f70f60a54b7c6c4b84cebb268011d2db4a0ac1e",
+      "spatial/final_elements.csv": "6600114d389976fca8f886e5675a5fc8033629e4b8977976da9b222a0e21990e",
+      "spatial/final_nodes.csv": "35eddb3a1c4549e8861541a7a627369f5f6e203b0709b10e591e82ce28952632",
+      "spatial/final_results.vtu": "0fae76d802cf01ded906253df37f769bc27408b3c747f27945bbecc3919a1df8",
+      "spatial/final_surface_profile.png": "87c19e3c6fab36690e68d3976d23da12d64c4e7b78239b9687c208730738c1c2",
+      "spatial/moving_load_overview.png": "2aeaf50f1c9253979951b32eb02580a3461078ae879427f69dea84240ef53f0c",
+      "spatial/pass_force_history.png": "c78db100c2fbee932c2ce3d6f014aab94380ef08beca7c908d4cbada6b00b756",
+      "spatial/pass_history.csv": "8df98cfe5956281c6d35167d3592d2bc23982f8b867e0f9aef94779fe8724d02",
+      "spatial/pass_plastic_history.png": "cfd77eb2a4b6a52002ffa9d66f64075330fa8a2205d032691ad7b6be71f1d1f9",
+      "spatial/pass_residual_state.png": "06d52b08aa1f951b6c5467922641f7b1942e3fb1753e8db5c132b56d2464336b",
+      "spatial/pass_summary.json": "cce6c42ca0214a8dff834b9d8bf7f911e6f5a68c27260048bc48a85d1959bcff",
+      "spatial/reference_mesh.msh": "406dba0b0f0c9ee8bdbd457b41cc01813fe94639b4615176b86ba6b4123eb9eb",
+      "spatial_final_elements.csv": "6600114d389976fca8f886e5675a5fc8033629e4b8977976da9b222a0e21990e",
+      "spatial_final_nodes.csv": "35eddb3a1c4549e8861541a7a627369f5f6e203b0709b10e591e82ce28952632",
+      "spatial_final_results.vtu": "0fae76d802cf01ded906253df37f769bc27408b3c747f27945bbecc3919a1df8",
+      "spatial_final_surface_profile.png": "87c19e3c6fab36690e68d3976d23da12d64c4e7b78239b9687c208730738c1c2",
+      "spatial_pass_history.csv": "8df98cfe5956281c6d35167d3592d2bc23982f8b867e0f9aef94779fe8724d02",
+      "spatial_pass_residual_state.png": "06d52b08aa1f951b6c5467922641f7b1942e3fb1753e8db5c132b56d2464336b",
+      "strip_template.json": "59a35bdb4f03e05522e261ff509747f9f9c50d72f0cb2b915214937c029c3014"
+    }
+  }
+}

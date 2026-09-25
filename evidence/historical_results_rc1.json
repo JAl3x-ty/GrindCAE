@@ -1,0 +1,47 @@
+[
+  {
+    "path": "outputs\\completed_model_study\\bounded_reference_calibrated",
+    "result_format": "grindcae_zhang2017_reconstruction_v2",
+    "saved_version": "3.8.0.dev0"
+  },
+  {
+    "path": "outputs\\completed_model_study\\bounded_unfitted",
+    "result_format": "grindcae_zhang2017_reconstruction_v2",
+    "saved_version": "3.8.0.dev0"
+  },
+  {
+    "path": "outputs\\completed_model_study\\periodic_reference_calibrated",
+    "result_format": "grindcae_zhang2017_reconstruction_v2",
+    "saved_version": "3.8.0.dev0"
+  },
+  {
+    "path": "outputs\\desktop_acceptance\\20260925_154424_b5a41520",
+    "result_format": "grindcae_zhang2017_reconstruction_v2",
+    "saved_version": "3.8.0rc1"
+  },
+  {
+    "path": "outputs\\explicit_depths",
+    "result_format": "grindcae_zhang2017_force_v1",
+    "saved_version": "3.8.0.dev0"
+  },
+  {
+    "path": "outputs\\explicit_depths_printed",
+    "result_format": "grindcae_zhang2017_force_v1",
+    "saved_version": "3.8.0.dev0"
+  },
+  {
+    "path": "outputs\\paper_stochastic",
+    "result_format": "grindcae_zhang2017_force_v1",
+    "saved_version": "3.8.0.dev0"
+  },
+  {
+    "path": "outputs\\paper_stochastic_printed",
+    "result_format": "grindcae_zhang2017_force_v1",
+    "saved_version": "3.8.0.dev0"
+  },
+  {
+    "path": "outputs\\powershell_entry_verified",
+    "result_format": "grindcae_zhang2017_force_v1",
+    "saved_version": "3.8.0.dev0"
+  }
+]
