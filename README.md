@@ -1,115 +1,84 @@
-# GrindCAE 3.8.1 文献力与弹塑性历史工作台
+# GrindCAE 3.8.1
 
-## 文档体系
+中文磨削工程计算工作台：把文献磨削力模型、磨粒群统计重建和现有二维弹塑性历史求解器连接起来，形成可保存、可回读、可导出的工程计算流程。
 
-当前活动任务为 docs/TASK_3_8_1.md；能力与验收见 [3.8.1验收说明](docs/ACCEPTANCE_3_8_1.md)。
-最新状态见 docs/PROJECT_STATE.md，以下3.8.0内容为历史记录。
+> 这是一个面向科研复现和工程研究的 Windows 软件版本。3.8.1 已完成本机人工验收、冻结程序封包和源码发布；独立电脑验收、实验标定和独立物理验证仍需使用者按自己的材料与设备数据完成。
 
-## 开发边界
+## 软件定位
 
-新增论文力驱动的均匀/周向条带双路线J2历史联算，已执行自动及GUI核验。
-用户已确认入口、结果、看图正常；随后授权的高级参数布局与滚轮修复已完成。
-启动 Start-GrindCAE-3.8.1.cmd；旧窗口需要用户保存后重开才能载入修复。
-用户已通过人工验收；Windows x64便携ZIP已生成，位于release目录。目录沿用3.8.0名称，原4.0/Abaqus树保留。发布状态见 docs/RELEASE_3_8_1.md。
-模型补齐假设、材料标定及独立实验验证边界见验收说明。
+GrindCAE 3.8.1 适合用来：
 
-## 历史记录
+- 根据工艺参数和论文模型重新计算磨削力，而不是只读取一次性固定力值；
+- 重建带粒度、组织号、修整高度和随机种子的等效磨粒群；
+- 分开查看塑性流动、材料去除/断裂应力、前刀面摩擦和磨损面摩擦四类力；
+- 将论文总力和空间条带载荷接入现有固定网格 J2 弹塑性历史求解器；
+- 对比均匀载荷与周向条带载荷下的位移、应力、等效塑性应变和卸载残余；
+- 保存工程、回读历史结果、浏览图片，并导出 CSV/Origin 数据。
 
-## 文档体系
+3.8.1 保留了原有工作台和历史结果兼容路径，4.0/Abaqus 真实接触开发树仍作为后续独立路线保存。
 
-本目录为独立的3.8.0开发候选，依据Zhang等2017年材料去除与塑性堆积磨削力模型。
-完整科学阅读、公式、单位、歧义与复现缺口见 [论文审计](docs/PAPER_AUDIT.md)。
-实施范围见 [任务书](docs/TASK.md)，当前验收状态见 [项目状态](docs/PROJECT_STATE.md)。
+## 3.8.1 核心功能
 
-## 开发边界
+### 1. 论文力模型复现
 
-### 当前候选：3.8.0rc2 现有工程工作台集成
+软件按论文中的参数化关系计算有效磨粒切深、塑性流动/耕犁力、材料去除或断裂应力力、前刀面摩擦力和磨损面摩擦力，并汇总为法向力 `Fn` 与切向力 `Ft`。每次运行都会从当前工程的轮径、切深、速度、宽度、材料和文献参数重新计算，工艺变化会进入结果指纹。
 
-已完成第七种正式分析模式“文献磨削力·材料去除与塑性堆积”，复用参数保存、后台计算、
-结果中心、Origin导出及工程归档。179项检查通过（29.73s），实际Tk计算和界面截图已检查。
-双击Start-GrindCAE-3.8.0.cmd启动完整工作台；在分析页选择文献模式。
-详见[集成候选说明](docs/RELEASE_3_8_0_RC2.md)。原工作区385个源码/测试哈希保持一致。
-副本版本3.8.0rc2；原工作区仍3.0.1，保留真实接触开发。当前停在用户人工试用。
-FE空间载荷/历史联算和便携EXE仍未交付。下方rc1/dev0为历史记录，以本条为当前状态。
+论文中没有完整给出砂轮空间重建、修整边界和条带压力闭合方式，因此软件对这些环节保留了明确的工程假设、来源记录和 fallback 标记。假设不会被隐藏在结果数字里。
 
-### 历史候选：3.8.0rc1 中文桌面工作台
+### 2. 磨粒群与四类力
 
-**双击根目录 `Start-GrindCAE-3.8.0.cmd` 启动。** 使用本机现有Python环境。
-支持参数编辑、算例保存加载、后台计算、分项图/磨粒表、历史结果和现有内核总力输入导出。
-46项测试通过，9份历史结果回读成功，实际窗口已检查；待用户人工试用。
-使用步骤和范围见[候选版说明](docs/RELEASE_3_8_0_RC1.md)。
-完整FE历史/主工作台合并及便携EXE尚未完成。以下dev0段落保留为开发历史。
+磨粒记录包含粒径、位置、有效性、动态切深和四类分项力。支持固定随机种子，便于重复计算和比较参数变化。分项力可以单独导出，并检查分项合力与总力的守恒残差。
 
-2026-09-25追加：合理补齐版及现有内核总力接口已实现，详见
-[总体升级设计](docs/INTEGRATED_KERNEL_UPGRADE.md)与[实际结果](docs/RECONSTRUCTION_OUTCOME.md)。
-新Schema 2支持有界修整高度、两种动态边界和K1参考反标；旧Schema 1保持兼容。
-本轮未运行自动测试，版本仍3.8.0.dev0。完整FE衔接和GUI尚未完成。
+### 3. J2 历史双路线
 
-新示例与图表在`outputs/completed_model_study`，可运行：
+在相同网格、材料、目标位置、总力历史和 Newton 门槛下，软件分别计算均匀路线与周向条带路线。两条路线各自维护材料历史，支持进入、满接触、退出和最终卸载。结果可比较位移、应力、塑性累积、外载历史和卸载后的残余场。投影使用固定网格 P1 边界积分，并对法向/切向分量分别检查守恒。
 
-```powershell
-cd D:\CODEX\project-Grinding.CAE-3.8.0
-.\run_kernel.ps1 -Case .\outputs\completed_model_study\bounded_reference_calibrated.json -OutputDirectory .\outputs\my_bounded_run
-.\run_legacy_bridge.ps1 -SourceResult .\outputs\my_bounded_run -OutputDirectory .\outputs\my_force_bridge
-```
+### 4. 工程工作台
 
-`run_legacy_bridge.ps1`读取现有主内核并调用其公共力API；不会运行FE。
-可选`-HistoryTemplate`和`-MaterialProvenance`生成严格的历史输入；必须明确保留E/ν/Et的来源。
-旧内核输入里的等效us和Fn/Ft只适用于该工况；修改工艺后应重算文献模型并重新生成。
-示例历史输入与来源清单已保存于`outputs/legacy_point_bridge`。
+- 中文 Tk 工作台和后台计算进度；
+- 文献力模式与文献力驱动弹塑性单程模式；
+- 工程参数保存、重开、输入指纹和结果状态识别；
+- 分类结果中心、单图查看、原图缩放和结果文件定位；
+- CSV/Origin 友好导出和工程归档回读；
+- Windows x64 便携 ZIP，可在解压后直接启动冻结程序。
 
-### 首轮内核及旧示例说明
+## 快速开始
 
-已经实现独立SI输入、β经验曲线、逐磨粒耕犁/切削与摩擦力、随机砂轮字面重建、
-动态遮挡、合力、K1双分量反标接口、命令行和严格结果回读。
-结果保存完整公式约定、单位假设、种子、逐磨粒深度/力及文件哈希。
-现有真实接触源码、检查点和应用3.0.1保留在 `D:/CODEX/project-Grinding.CAE`。
-本版没有集成旧GUI，也没有生成便携EXE。原文图15/18精确复现和独立实验验证尚未完成。
+### 便携版（推荐）
 
-### 使用
+1. 在本仓库的 [Releases](https://github.com/JAl3x-ty/GrindCAE/releases) 下载 `GrindCAE-3.8.1-Windows-x64.zip`。
+2. 解压后双击目录中的 `GrindCAE.exe`。
+3. 在分析页选择“文献力驱动·弹塑性单程”，载入或新建工程后运行。
 
-在PowerShell执行，输出目录须为新目录：
+当前发布包信息：文件大小 130,612,569 bytes；SHA-256 为 `b99617e5d405ccdbcad9cb734d4e86332f9578e62c1094615e53599ef25eb245`。
+
+### 源码版
+
+需要 Python 3.11 及项目依赖。在 PowerShell 中：
 
 ```powershell
 cd D:\CODEX\project-Grinding.CAE-3.8.0
-.\run_kernel.ps1 -Case .\examples\explicit_depths.json -OutputDirectory .\outputs\my_explicit_run
-.\run_kernel.ps1 -Case .\examples\paper_stochastic.json -OutputDirectory .\outputs\my_stochastic_run
+.\Start-GrindCAE-3.8.1.cmd
 ```
 
-脚本复用现有Python依赖，使用独立`grindcae380`命名空间，不安装或替换原软件。
-另一台机器可用 `-Python` 指定已含NumPy、Matplotlib和Pillow的Python 3.11+。
+完整字段、结果文件和严格回读规则见 [任务与范围](docs/TASK_3_8_1.md)、[实现说明](docs/IMPLEMENTATION_3_8_1.md)、[验收记录](docs/ACCEPTANCE_3_8_1.md) 和 [发布记录](docs/RELEASE_3_8_1.md)。
 
-`explicit_depths`用于提供明确的有效单磨粒切深并核对力公式；所附深度集合是数值示例，不是论文原始砂轮。
-`paper_stochastic`按式40字面累计随机振动，带已登记的边界假设；其结果目前明显偏离文献有效磨粒数量。
-请先读审计报告，再将其用于研究比较。
+## 验证证据
 
-输出 `input.json`、`summary.json`、`grains.csv`、`force_components.png`。
-CSV用UTF-8 BOM方便Windows导入，计算字段全为SI。结果目录存在时拒绝覆盖。
-保存失败不发布半套结果；回读核对输入、文件哈希、逐磨粒数据、力和PNG。
+发布前按测试文件分进程执行 274 项检查并全部通过，同时完成冻结程序诊断、旧模式 smoke、文献/J2 联算、工程保存回读和 GUI 人工验收。代表性冻结结果为 `Fn = 65.541382 N`、`Ft = 43.817306 N`，四类力投影守恒最大残差约 `1.1e-14 N`，两条路线均完成最终卸载且最终外载为零。用户已确认入口、结果和看图正常，并复查了高级参数布局和当前节点滚轮修复。
 
-### API
+详细数字、截图、测试证据和人工流程记录在 [ACCEPTANCE_3_8_1.md](docs/ACCEPTANCE_3_8_1.md)。
 
-```python
-from grindcae380.core import Case, predict, grain_force, calibrate_wear
-from grindcae380.workflow import run_case, read_result
+## 模型边界
 
-case = Case.paper_example(source='explicit_depths')
-prediction = predict(case)
-```
+3.8.1 是带明确补齐假设的论文模型软件化实现，当前应按以下范围使用：二维固定网格、宏观载荷和 J2 弹塑性历史分析；论文力与条带载荷用于工况响应研究，不等同于真实三维磨粒分离；没有真实切屑生成、自动材料分离、热耦合、三维磨粒形貌或粗糙度预测；砂轮重建、K1 单位/参考反标、条带压力分布和跨材料参数迁移仍需要新的证据；440C 文献参数不能自动代表其他钢材，其他材料必须重新标定；软件检查不替代实验标定或独立物理验证。
 
-显式 `formula_convention`：`printed`保留式10及式21最右端，
-`continuous_projection`按应力连续性和摩擦投影重建。两者均不能冒称已获作者确认。
-参数 `wear_coefficient_N_m`必须配合`wear_provenance`；示例0.01836N·m来自未确认的N·mm单位假设。
-`calibrate_wear`分别从实测Fn和Ft反算K1并报告不一致度，不自动平均或替换输入。
-材料名固定440C文献拟合；其它材料需要新的β及强度/摩擦依据。
+正确的使用方式是把它作为可追溯的论文力与弹塑性历史计算基线：先固定材料、工艺、随机种子和参数来源，再比较两条载荷路线，最后用独立实验或更高保真接触模型验证物理结论。
 
-### 核验
+## 后续路线
 
-```powershell
-cd D:\CODEX\project-Grinding.CAE-3.8.0
-$env:MPLBACKEND = 'Agg'
-& D:\CODEX\project-Grinding.CAE\.venv\Scripts\python.exe -m pytest -q
-```
+3.8.1 作为宏观论文力和 J2 历史基线保留。后续版本按独立任务推进：4.0 面向单磨粒卸载后的可信工件表面，5.0 再扩展到少量连续磨粒、随机群体和二维轮廓粗糙度。后续路线不会把 3.8.1 的条带总力重复加载到真实接触内核。
 
-测试使用独立数值积分、手算力、明确遮挡排列、SI单位链、固定种子重复、非法输入拒绝和真实CLI/结果回读。
-结果只证明所声明公式合同与实现一致。论文报告的4.19%/4.31%误差不属于本软件。
+## 许可与研究使用
+
+本仓库当前用于 GrindCAE 研究软件的源码、文档和发布记录。使用论文模型、文献参数和第三方依赖时，请同时遵守相应论文、数据来源和依赖包的许可与引用要求。
